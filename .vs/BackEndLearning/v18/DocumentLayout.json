@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\services\\iinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\services\\iinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\services\\iinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\services\\iinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,24 +30,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "InventoryService.cs",
               "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Services\\InventoryService.cs",
               "RelativeDocumentMoniker": "Task1_Middleware\\Services\\InventoryService.cs",
               "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Services\\InventoryService.cs",
               "RelativeToolTip": "Task1_Middleware\\Services\\InventoryService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAowBwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwDkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T15:14:47.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T15:14:47.597Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "IInventoryService.cs",
               "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Services\\IInventoryService.cs",
               "RelativeDocumentMoniker": "Task1_Middleware\\Services\\IInventoryService.cs",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Task1_Middleware\\Services\\IInventoryService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T15:06:28.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T15:06:28.244Z"
             },
             {
               "$type": "Document",
@@ -66,36 +64,35 @@
               "RelativeDocumentMoniker": "Task1_Middleware\\Controllers\\ItemController.cs",
               "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Controllers\\ItemController.cs",
               "RelativeToolTip": "Task1_Middleware\\Controllers\\ItemController.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwDAAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T11:18:21.899Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Models\\Item.cs",
               "RelativeDocumentMoniker": "Task1_Middleware\\Models\\Item.cs",
               "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Models\\Item.cs",
               "RelativeToolTip": "Task1_Middleware\\Models\\Item.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-21T11:05:55.301Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Program.cs",
               "RelativeDocumentMoniker": "Task1_Middleware\\Program.cs",
               "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Program.cs",
               "RelativeToolTip": "Task1_Middleware\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T10:39:35.7Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T10:39:35.7Z"
             }
           ]
         }

@@ -1,8 +1,9 @@
 using Task1_Middleware.Models;
+using Task1_Middleware.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 // –≈√»—“–¿÷»ﬂ —≈–¬»—¿
-builder.Services.AddSingleton(new List<Item> { new() { Id = 1, Name = "one", Price = 10m }, new() { Id = 2, Name = "two", Price = 11m } });
+builder.Services.AddSingleton<IInventoryService, InventoryService>();
 builder.Services.AddControllers();
 
 var app = builder.Build();

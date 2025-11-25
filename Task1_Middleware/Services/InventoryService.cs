@@ -2,9 +2,14 @@
 
 namespace Task1_Middleware.Services
 {
-    public class InventoryService(List<Item> items) : IInventoryService
+    public class InventoryService : IInventoryService
     {
-        private List<Item> _items = items;
+        private List<Item> _items;
+
+        public InventoryService()
+        {
+            _items = [new() { Id = 1, Name = "one", Price = 10m }, new() { Id = 2, Name = "two", Price = 11m }];
+        }
 
         public Item CreateItem(Item item) // странный метод и называется странно
         {
