@@ -46,4 +46,9 @@ namespace _2._1.Validation
             return true;
         }
     }
+
+    [AttributeUsage(AttributeTargets.Class)]
+    public sealed class GenerateValidationAttribute : Attribute
+    {
+    }
 }
