@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 
 
@@ -83,18 +82,47 @@ namespace FastPropertyAccess.Generator
             var namespaceName = invocations.First().ContainingType.ContainingNamespace.ToDisplayString();
             sb.AppendLine($"namespace {namespaceName}");
             sb.AppendLine("{");
-            sb.AppendLine("    public static class PropertyCacheGenerated");
+            sb.AppendLine("    public static partial class PropertyCache");
             sb.AppendLine("    {");
-            foreach (var invocation in invocations.Distinct().Where(i => i is not null))
+            sb.AppendLine("         private static readonly System.Collections.Concurrent.ConcurrentDictionary" +
+                "<(System.Type Type, string PropertyName), System.Delegate> _precomputedCach = ");
+            sb.AppendLine("             new System.Collections.Concurrent.ConcurrentDictionary<(System.Type, " +
+                "string PropertyName), System.Gelegate>");
+            sb.AppendLine("             {");
+
+            int i = 0;
+            foreach (var group in grouppedInvocations)
             {
-                sb.AppendLine($"        public static Func<{invocation!.PropertyType.ToDisplayString()}, {invocation.PropertyReturnType.ToDisplayString()}> GetGetter_{invocation.ContainingType.Name}_{invocation.PropertyName}() ");
-                sb.AppendLine("        {");
-                sb.AppendLine($"            return source => source.{invocation.PropertyName};");
-                sb.AppendLine("        }");
+                var sourceType = group.Key;
+                foreach (var invocation in group.Value)
+                {
+                    sb.AppendLine(
+                        $"                  {{(typeof({sourceType.ToDisplayString()}), \"{invocation.PropertyName}\"), " +
+                        $"new System.Func<{sourceType.ToDisplayString()}, {invocation.PropertyReturnType.ToDisplayString()}> " +
+                        $"(source => source.{invocation.PropertyName}) }}");
+
+                    if(i < grouppedInvocations.Sum(g => g.Value.Count) -1)
+                        sb.AppendLine("                  ,");
+
+                    sb.AppendLine();
+                    i++;
+                }
             }
+            sb.AppendLine("             };");
+            sb.AppendLine();
+            sb.AppendLine("         public static System.Func<T, TProperty> GetGetter<T, TProperty>(string" +
+                "propertyName)");
+            sb.AppendLine("         {");
+            sb.AppendLine("             var key = typeof(T), propertyName);");
+            sb.AppendLine("             if(_precomputedCache.TryGetValue(key, out var cachedDelegate))");
+            sb.AppendLine("             {");
+            sb.AppendLine("                 return (System.Func<T, TProperty>)cachedDelegate;");
+            sb.AppendLine("             }");
+            sb.AppendLine("            throw new System.InvalidOperationException($\"Геттер для свойства '{propertyName}' типа '{typeof(T).Name}' не был сгенерирован.\");");
+            sb.AppendLine("        }");
             sb.AppendLine("    }");
             sb.AppendLine("}");
-            context.AddSource("PropertyCacheGenerated.g.cs", SourceText.From(sb.ToString(), Encoding.UTF8));
+            context.AddSource("PropertyCache.g.cs", SourceText.From(sb.ToString(), Encoding.UTF8));
         }
 
         private record InvocationDetails(INamedTypeSymbol ContainingType, ITypeSymbol PropertyType, 
