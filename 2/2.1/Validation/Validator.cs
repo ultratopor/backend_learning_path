@@ -6,7 +6,7 @@ namespace _2._1.Validation
 {
     public class Validator
     {
-        public List<string> Validate<T>(T obj) where T : class
+        public List<string> Validate<T>(T? obj) where T : class
         {
             var errors = new List<string>();
             if (obj == null)
@@ -55,6 +55,7 @@ namespace _2._1.Validation
             }
             return errors;
         }
+        
         public List<string> Validate(object obj)
         {
             var errors = new List<string>();
