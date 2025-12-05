@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../Hill Climbing/Hill Climbing.csproj" />
+  <Project Path="Thread vs Task.csproj" />
+</Solution>

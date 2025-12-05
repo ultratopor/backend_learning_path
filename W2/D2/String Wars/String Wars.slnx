@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../BlackHole/BlackHole.csproj" />
+  <Project Path="String Wars.csproj" />
+</Solution>
