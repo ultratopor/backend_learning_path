@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\models\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2CB0F285-4CD6-4656-8D24-D57744AC3102}|W4\\Event Gateway\\Event Gateway.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w4\\event gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB0F285-4CD6-4656-8D24-D57744AC3102}|W4\\Event Gateway\\Event Gateway.csproj|solutionrelative:w4\\event gateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\controllers\\itemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2CB0F285-4CD6-4656-8D24-D57744AC3102}|W4\\Event Gateway\\Event Gateway.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w4\\event gateway\\storagebuffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB0F285-4CD6-4656-8D24-D57744AC3102}|W4\\Event Gateway\\Event Gateway.csproj|solutionrelative:w4\\event gateway\\storagebuffer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\services\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2CB0F285-4CD6-4656-8D24-D57744AC3102}|W4\\Event Gateway\\Event Gateway.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w4\\event gateway\\eventparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB0F285-4CD6-4656-8D24-D57744AC3102}|W4\\Event Gateway\\Event Gateway.csproj|solutionrelative:w4\\event gateway\\eventparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\task1_middleware\\services\\iinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E496FE60-DDAE-4747-8C16-7A6A33006624}|Task1_Middleware\\Task1_Middleware.csproj|solutionrelative:task1_middleware\\services\\iinventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2CB0F285-4CD6-4656-8D24-D57744AC3102}|W4\\Event Gateway\\Event Gateway.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w4\\event gateway\\sensorevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CB0F285-4CD6-4656-8D24-D57744AC3102}|W4\\Event Gateway\\Event Gateway.csproj|solutionrelative:w4\\event gateway\\sensorevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,70 +25,64 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 136,
           "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InventoryService.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Services\\InventoryService.cs",
-              "RelativeDocumentMoniker": "Task1_Middleware\\Services\\InventoryService.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Services\\InventoryService.cs",
-              "RelativeToolTip": "Task1_Middleware\\Services\\InventoryService.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwDkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T15:14:47.597Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IInventoryService.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Services\\IInventoryService.cs",
-              "RelativeDocumentMoniker": "Task1_Middleware\\Services\\IInventoryService.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Services\\IInventoryService.cs",
-              "RelativeToolTip": "Task1_Middleware\\Services\\IInventoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T15:06:28.244Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ItemController.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Controllers\\ItemController.cs",
-              "RelativeDocumentMoniker": "Task1_Middleware\\Controllers\\ItemController.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Controllers\\ItemController.cs",
-              "RelativeToolTip": "Task1_Middleware\\Controllers\\ItemController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Title": "StorageBuffer.cs",
+              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W4\\Event Gateway\\StorageBuffer.cs",
+              "RelativeDocumentMoniker": "W4\\Event Gateway\\StorageBuffer.cs",
+              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W4\\Event Gateway\\StorageBuffer.cs",
+              "RelativeToolTip": "W4\\Event Gateway\\StorageBuffer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T11:18:21.899Z",
+              "WhenOpened": "2025-12-19T14:36:22.558Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Item.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Models\\Item.cs",
-              "RelativeDocumentMoniker": "Task1_Middleware\\Models\\Item.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Models\\Item.cs",
-              "RelativeToolTip": "Task1_Middleware\\Models\\Item.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "EventParser.cs",
+              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W4\\Event Gateway\\EventParser.cs",
+              "RelativeDocumentMoniker": "W4\\Event Gateway\\EventParser.cs",
+              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W4\\Event Gateway\\EventParser.cs",
+              "RelativeToolTip": "W4\\Event Gateway\\EventParser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T11:05:55.301Z",
+              "WhenOpened": "2025-12-19T14:30:04.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Program.cs",
-              "RelativeDocumentMoniker": "Task1_Middleware\\Program.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\Task1_Middleware\\Program.cs",
-              "RelativeToolTip": "Task1_Middleware\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABDAAAAAAAAAA==",
+              "Title": "SensorEvent.cs",
+              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W4\\Event Gateway\\SensorEvent.cs",
+              "RelativeDocumentMoniker": "W4\\Event Gateway\\SensorEvent.cs",
+              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W4\\Event Gateway\\SensorEvent.cs",
+              "RelativeToolTip": "W4\\Event Gateway\\SensorEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T10:39:35.7Z"
+              "WhenOpened": "2025-12-19T14:28:38.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W4\\Event Gateway\\Program.cs",
+              "RelativeDocumentMoniker": "W4\\Event Gateway\\Program.cs",
+              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W4\\Event Gateway\\Program.cs",
+              "RelativeToolTip": "W4\\Event Gateway\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T14:15:21.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }

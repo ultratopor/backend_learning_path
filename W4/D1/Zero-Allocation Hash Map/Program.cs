@@ -6,7 +6,8 @@ namespace Zero_Allocation_Hash_Map
     {
         static void Main(string[] args)
         {
-            var _ = BenchmarkRunner.Run(typeof(Program).Assembly);
+            var _ = BenchmarkRunner.Run<DictionaryBenchmarks>();
+            //_ = BenchmarkRunner.Run<DictionaryDegradationBenchmarks>();
         }
     }
 }
