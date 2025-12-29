@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigWatcher", "W5\ConfigW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rotation Logger", "W5\Rotation Logger\Rotation Logger.csproj", "{F8E62E66-6EDB-47D8-ADCB-352A06E70578}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Key Guard", "W6\API Key Guard\API Key Guard.csproj", "{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,18 @@ Global
 		{F8E62E66-6EDB-47D8-ADCB-352A06E70578}.Release|x64.Build.0 = Release|Any CPU
 		{F8E62E66-6EDB-47D8-ADCB-352A06E70578}.Release|x86.ActiveCfg = Release|Any CPU
 		{F8E62E66-6EDB-47D8-ADCB-352A06E70578}.Release|x86.Build.0 = Release|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Debug|x64.Build.0 = Debug|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Debug|x86.Build.0 = Debug|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Release|x64.ActiveCfg = Release|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Release|x64.Build.0 = Release|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Release|x86.ActiveCfg = Release|Any CPU
+		{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

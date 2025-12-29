@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F8E62E66-6EDB-47D8-ADCB-352A06E70578}|W5\\Rotation Logger\\Rotation Logger.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w5\\rotation logger\\backgroundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8E62E66-6EDB-47D8-ADCB-352A06E70578}|W5\\Rotation Logger\\Rotation Logger.csproj|solutionrelative:w5\\rotation logger\\backgroundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8E62E66-6EDB-47D8-ADCB-352A06E70578}|W5\\Rotation Logger\\Rotation Logger.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w5\\rotation logger\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8E62E66-6EDB-47D8-ADCB-352A06E70578}|W5\\Rotation Logger\\Rotation Logger.csproj|solutionrelative:w5\\rotation logger\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8E62E66-6EDB-47D8-ADCB-352A06E70578}|W5\\Rotation Logger\\Rotation Logger.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w5\\rotation logger\\rotationlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8E62E66-6EDB-47D8-ADCB-352A06E70578}|W5\\Rotation Logger\\Rotation Logger.csproj|solutionrelative:w5\\rotation logger\\rotationlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}|W6\\API Key Guard\\API Key Guard.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w6\\api key guard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}|W6\\API Key Guard\\API Key Guard.csproj|solutionrelative:w6\\api key guard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +14,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 264,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c93a910a-0fa6-4307-93a4-f2bd61ec7828}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -31,40 +27,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BackgroundService.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W5\\Rotation Logger\\BackgroundService.cs",
-              "RelativeDocumentMoniker": "W5\\Rotation Logger\\BackgroundService.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W5\\Rotation Logger\\BackgroundService.cs",
-              "RelativeToolTip": "W5\\Rotation Logger\\BackgroundService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T14:06:57.313Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RotationLogger.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W5\\Rotation Logger\\RotationLogger.cs",
-              "RelativeDocumentMoniker": "W5\\Rotation Logger\\RotationLogger.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W5\\Rotation Logger\\RotationLogger.cs",
-              "RelativeToolTip": "W5\\Rotation Logger\\RotationLogger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T07:48:50.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W5\\Rotation Logger\\Program.cs",
-              "RelativeDocumentMoniker": "W5\\Rotation Logger\\Program.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W5\\Rotation Logger\\Program.cs",
-              "RelativeToolTip": "W5\\Rotation Logger\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAvAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W6\\API Key Guard\\Program.cs",
+              "RelativeDocumentMoniker": "W6\\API Key Guard\\Program.cs",
+              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W6\\API Key Guard\\Program.cs",
+              "RelativeToolTip": "W6\\API Key Guard\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-26T07:11:28.604Z",
+              "WhenOpened": "2025-12-29T10:19:05.609Z",
               "EditorCaption": ""
             }
           ]
