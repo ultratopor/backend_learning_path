@@ -5,7 +5,7 @@ using Calendar_Service.Service;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Calendar_Service;
+namespace Calendar_Service.Controllers;
 [ApiController]
 [Route(("api/v1/events"))]
 public class EventsController(ICalendarService service, IMapper mapper, IValidator<CreateEventRequest> validator) : ControllerBase

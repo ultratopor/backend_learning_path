@@ -41,7 +41,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin System", "W6\Plugin 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "W7", "W7", "{A17B6F79-0277-4D8B-90F8-416E30F6AD69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar Service", "W7\Calendar Service\Calendar Service.csproj", "{77DA65DC-8A13-4958-ACBD-60D60C7CDC90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar_Service", "W7\Calendar_Service\Calendar_Service.csproj", "{77DA65DC-8A13-4958-ACBD-60D60C7CDC90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
