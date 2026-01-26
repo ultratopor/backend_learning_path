@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}|W6\\API Key Guard\\API Key Guard.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w6\\api key guard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{353E7EC3-AF79-4633-81A1-ACC45A1F3B43}|W6\\API Key Guard\\API Key Guard.csproj|solutionrelative:w6\\api key guard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{220331D2-F6C2-4D62-9446-863D3640D570}|W7\\Calendar_Service.Benchmark\\Calendar_Service.Benchmark.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w7\\calendar_service.benchmark\\historybenchmark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{220331D2-F6C2-4D62-9446-863D3640D570}|W7\\Calendar_Service.Benchmark\\Calendar_Service.Benchmark.csproj|solutionrelative:w7\\calendar_service.benchmark\\historybenchmark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{220331D2-F6C2-4D62-9446-863D3640D570}|W7\\Calendar_Service.Benchmark\\Calendar_Service.Benchmark.csproj|c:\\users\\rms2\\documents\\backend_learning_path\\w7\\calendar_service.benchmark\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{220331D2-F6C2-4D62-9446-863D3640D570}|W7\\Calendar_Service.Benchmark\\Calendar_Service.Benchmark.csproj|solutionrelative:w7\\calendar_service.benchmark\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 264,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,15 +30,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W6\\API Key Guard\\Program.cs",
-              "RelativeDocumentMoniker": "W6\\API Key Guard\\Program.cs",
-              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W6\\API Key Guard\\Program.cs",
-              "RelativeToolTip": "W6\\API Key Guard\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W7\\Calendar_Service.Benchmark\\Program.cs",
+              "RelativeDocumentMoniker": "W7\\Calendar_Service.Benchmark\\Program.cs",
+              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W7\\Calendar_Service.Benchmark\\Program.cs",
+              "RelativeToolTip": "W7\\Calendar_Service.Benchmark\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-29T10:19:05.609Z",
+              "WhenOpened": "2026-01-19T08:16:18.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HistoryBenchmark.cs",
+              "DocumentMoniker": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W7\\Calendar_Service.Benchmark\\HistoryBenchmark.cs",
+              "RelativeDocumentMoniker": "W7\\Calendar_Service.Benchmark\\HistoryBenchmark.cs",
+              "ToolTip": "C:\\Users\\RMS2\\Documents\\backend_learning_path\\W7\\Calendar_Service.Benchmark\\HistoryBenchmark.cs",
+              "RelativeToolTip": "W7\\Calendar_Service.Benchmark\\HistoryBenchmark.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBUAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T08:12:15.103Z",
               "EditorCaption": ""
             }
           ]

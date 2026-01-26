@@ -1,9 +1,11 @@
 ﻿namespace Calendar_Service.Contracts;
 
-public sealed record EventResponse(
-    Guid Id,
-    string Title,
-    string Description,
-    DateTimeOffset StartTime,
-    DateTimeOffset EndTime,
-    string Location);
+public sealed class EventResponse
+{
+    public Guid Id { get; init; }
+    public string Title { get; init; }
+    public string Description { get; init; }
+    public DateTimeOffset StartTime { get; init; }
+    public DateTimeOffset EndTime { get; init; }
+    public string Location { get; init; }
+}

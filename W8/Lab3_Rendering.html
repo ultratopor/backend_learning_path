@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 Lab: Layout Thrashing</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a1a; color: #fff; overflow: hidden; }
+        .controls { position: fixed; top: 10px; left: 10px; z-index: 100; background: rgba(0,0,0,0.8); padding: 20px; border-radius: 8px; }
+        button { padding: 10px 20px; font-size: 14px; cursor: pointer; border: none; border-radius: 4px; margin-right: 10px; font-weight: bold; }
+        .btn-lag { background: #e74c3c; color: white; }
+        .btn-fast { background: #2ecc71; color: white; }
+        .btn-stop { background: #95a5a6; color: white; }
+        .stats { margin-top: 10px; font-family: monospace; color: #f1c40f; }
+        
+        /* The "GameObjects" */
+        .mover {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #3498db;
+            border-radius: 50%;
+            will-change: transform; /* Hint to browser: put on GPU layer */
+        }
+    </style>
+</head>
+<body>
+
+<div class="controls">
+    <h3>Day 3: Render Performance</h3>
+    <button class="btn-lag" onclick="setMode('lag')">Mode: Layout Thrashing (Bad)</button>
+    <button class="btn-fast" onclick="setMode('fast')">Mode: Batch Update (Good)</button>
+    <button class="btn-stop" onclick="setMode('stop')">Stop</button>
+    <div class="stats" id="status">Current: STOPPED</div>
+    <div class="stats" id="count">Objects: 2000</div>
+</div>
+
+<div id="container"></div>
+
+<script>
+    // --- SETUP ---
+    const COUNT = 2000;
+    const container = document.getElementById('container');
+    const items = [];
+    let mode = 'stop';
+    let animationId;
+
+    // Initialize "GameObjects"
+    // Аналог Instantiate() в Start()
+    for (let i = 0; i < COUNT; i++) {
+        const div = document.createElement('div');
+        div.className = 'mover';
+        div.style.top = '0px';
+        div.style.left = Math.random() * window.innerWidth + 'px';
+        container.appendChild(div);
+        
+        // Кэшируем ссылку и состояние (чтобы не читать из DOM)
+        items.push({
+            element: div,
+            y: Math.random() * window.innerHeight,
+            speed: 1 + Math.random() * 5,
+            x: parseFloat(div.style.left)
+        });
+    }
+
+    // --- LOGIC ---
+
+    function setMode(newMode) {
+        mode = newMode;
+        document.getElementById('status').innerText = "Current: " + mode.toUpperCase();
+        if (animationId) cancelAnimationFrame(animationId);
+        if (mode !== 'stop') loop();
+    }
+
+    function loop() {
+        if (mode === 'lag') updateLaggy();
+        else if (mode === 'fast') updateFast();
+        
+        animationId = requestAnimationFrame(loop);
+    }
+
+    // SCENARIO 1: The FPS Killer (Layout Thrashing)
+    function updateLaggy() {
+        // Мы перемещаем каждый элемент по одному
+        for (let i = 0; i < COUNT; i++) {
+            const item = items[i];
+            
+            // 1. UPDATE STATE
+            item.y += item.speed;
+            if (item.y > window.innerHeight) item.y = 0;
+
+            // 2. WRITE (Invalidate Layout)
+            item.element.style.top = item.y + 'px';
+
+            // 3. READ (Force Reflow!) 
+            // Архитектурная ошибка: Мы читаем геометрическое свойство offsetLeft
+            // СРАЗУ после записи style.top. 
+            // Браузер думает: "Черт, он изменил top, а теперь спрашивает left. 
+            // Вдруг top повлиял на left? Надо пересчитать ВЕСЬ ЛЭИАУТ прямо сейчас!"
+            //const position = item.element.offsetLeft; 
+            
+            // Бессмысленная операция, просто чтобы оправдать чтение
+            //if (position < 0) item.x = 0; 
+        }
+    }
+
+    // SCENARIO 2: Optimized (Batching)
+    function updateFast() {
+        // Мы просто пишем. Браузер сам решит, когда пересчитать (Batching).
+        // Мы НЕ читаем DOM внутри цикла записи.
+        for (let i = 0; i < COUNT; i++) {
+            const item = items[i];
+            
+            item.y += item.speed;
+            if (item.y > window.innerHeight) item.y = 0;
+
+            // Оптимизация: Используем transform вместо top/left
+            // transform обрабатывается на GPU (Composite Layer) и часто не вызывает Reflow вообще!
+            // Но даже если бы мы меняли top, без чтения это было бы быстрее.
+            item.element.style.transform = `translateY(${item.y}px)`;
+        }
+    }
+
+</script>
+</body>
+</html>

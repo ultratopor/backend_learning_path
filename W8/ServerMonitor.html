@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Monitor</title>
+    <style>
+        /* CSS Стили (Materials) */
+        body { 
+            font-family: monospace; /* Консольный шрифт */
+            background: #222;       /* Темная тема (Dark Mode) */
+            color: #fff;            /* Белый текст */
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto;         /* Центровка по горизонтали */
+        }
+        .server-card {
+            border: 1px solid #444; /* Граница рамки */
+            margin-bottom: 10px;    /* Отступ снизу */
+            padding: 10px;
+            display: flex;          /* Flexbox Layout (аналог HorizontalLayoutGroup) */
+            justify-content: space-between; /* Раскидать элементы по краям */
+            align-items: center;    /* Центровка по вертикали */
+        }
+        button {
+            cursor: pointer;        /* Курсор превращается в руку */
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>System Status</h1>
+    
+    <!-- Поле ввода (InputField) -->
+    <!-- oninput="" мы повесим позже через JS -->
+    <input type="text" id="searchInput" placeholder="Filter servers..." style="width: 100%; padding: 10px; margin-bottom: 20px;">
+    
+    <!-- Контейнер для списка (Content) -->
+    <!-- Сюда скрипт будет добавлять div'ы серверов -->
+    <div id="serverList">Loading...</div>
+</div>
+
+<!-- Начало скриптовой зоны -->
+<script>
+    // const = readonly var (неизменяемая ссылка)
+    const RAW_SERVERS = [
+        // Объекты описываются в фигурных скобках { key: value }
+        // Это аналог new AnonymousType { Id = 1, ... }
+        { id: 1, name: "Auth-Service", status: "online" },
+        { id: 2, name: "Database-Primary", status: "online" },
+        { id: 3, name: "Database-Replica", status: "offline" },
+        { id: 4, name: "Payment-Gateway", status: "online" }
+    ];
+    
+     // async function = async Task<List<Server>>
+    async function fetchServers(query) {
+        // Promise = TaskCompletionSource
+        return new Promise((resolve) => {
+            // setTimeout = Task.Delay(500)
+            setTimeout(() => {
+                if (!query) {
+                    // Возвращаем все данные
+                    resolve(RAW_SERVERS);
+                } else {
+                    // LINQ Where: item.name.Contains(query)
+                    // .toLowerCase() нужно для case-insensitive поиска
+                    const filtered = RAW_SERVERS.filter(s => 
+                        s.name.toLowerCase().includes(query.toLowerCase())
+                    );
+                    resolve(filtered);
+                }
+            }, 500); // 500мс задержка
+        });
+    }
+
+    // document.getElementById = GameObject.Find("name")
+    const listContainer = document.getElementById('serverList');
+    const inputField = document.getElementById('searchInput');
+
+    function render(servers) {
+        // Очищаем контейнер (Destroy all children)
+        listContainer.innerHTML = '';
+
+        if (servers.length === 0) {
+            listContainer.innerHTML = '<div>No servers found</div>';
+            return;
+        }
+
+        // LINQ Select + Aggregate (Join)
+        // map: Превращает объект Server в строку HTML
+        const htmlString = servers.map(server => {
+            // Тернарный оператор для текста кнопки
+            const btnText = server.status === 'online' ? 'Reboot' : 'Start';
+            
+            // Цветовая кодировка: зеленый если онлайн, красный если оффлайн
+            const color = server.status === 'online' ? '#0f0' : '#f00';
+
+            // Template String (Обратные кавычки ` `).
+            // ${variable} - это интерполяция, как {variable} в C#
+            return `
+                <div class="server-card" style="border-color: ${color}">
+                    <div>
+                        <strong>${server.name}</strong><br>
+                        <small>${server.status}</small>
+                    </div>
+                    <!-- data-id="${server.id}" - это способ зашить ID внутрь кнопки -->
+                    <!-- Чтобы при клике мы знали, КАКОЙ сервер перезагружать -->
+                    <button data-id="${server.id}">${btnText}</button>
+                </div>
+            `;
+        }).join(''); // Склеиваем массив строк в одну большую строку
+
+        // Вставляем HTML в DOM (Instantiate)
+        listContainer.innerHTML = htmlString;
+    }
+
+    // Функция высшего порядка: принимает функцию, возвращает новую функцию
+    function debounce(func, delay) {
+        let timer; // Замыкание (состояние хранится здесь)
+        return (...args) => {
+            clearTimeout(timer); // Сброс таймера (Reset countdown)
+            // Запуск нового таймера
+            timer = setTimeout(() => func(...args), delay);
+        };
+    }
+
+    // Создаем "ленивую" версию функции загрузки
+    const handleSearch = debounce(async (e) => {
+        const text = e.target.value; // Получаем текст из input
+        listContainer.style.opacity = '0.5'; // Визуальный эффект "Загрузка"
+        
+        const data = await fetchServers(text); // Ждем данные (await Task)
+        
+        render(data); // Рисуем
+        listContainer.style.opacity = '1'; // Возвращаем яркость
+    }, 300); // 300мс задержка
+
+    // addEventListener = inputField.onValueChanged.AddListener(...)
+    inputField.addEventListener('input', handleSearch);
+
+    listContainer.addEventListener('click', (e) => {
+        // e.target - это элемент, по которому кликнули
+        // closest('button') - ищет ближайшую кнопку вверх по иерархии (если клик был по тексту внутри кнопки)
+        const btn = e.target.closest('button');
+
+        // Если кликнули не по кнопке - выходим
+        if (!btn) return;
+
+        // Читаем ID из атрибута data-id (который мы зашили в Шаге 7)
+        const id = btn.dataset.id;
+        
+        // Простая логика (Mock Action)
+        alert(`Sending REBOOT command to Server ID: ${id}`);
+    });
+   // Вызываем загрузку с пустым запросом, чтобы показать все сервера
+    fetchServers('').then(data => render(data));
+
+</script>
+</body>
+</html>

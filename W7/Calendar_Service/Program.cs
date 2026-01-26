@@ -1,5 +1,5 @@
 using Calendar_Service.Data;
-using Calendar_Service.Service;
+using Calendar_Service.Services;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi; 
@@ -22,9 +22,12 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddMemoryCache();
 
-//builder.Services.AddSingleton<ICalendarService, InMemoryCalendarService>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseNpgsql(connectionString));
+builder.Services.AddDbContext<ApplicationDbContext>(option => option
+            .UseNpgsql(connectionString)
+            .UseSnakeCaseNamingConvention());
+
+builder.Services.AddScoped<ICalendarService, PostgresCalendarService>();
 
 var app = builder.Build();
 

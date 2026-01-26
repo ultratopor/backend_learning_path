@@ -10,6 +10,8 @@ public class Booking
     public string Title { get; set; } = string.Empty;
     public NpgsqlRange<DateTime> Period { get; set; }
     public int RoomId { get; set; }
+    public Guid UserId { get; set; } // Внешний ключ
+    public User? User { get; set; }   // Навигационное свойство (может быть null при ленивой загрузке)
     public uint Version { get; set; }
 }
 
@@ -39,5 +41,10 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
         // Это гарантирует, что EF выбросит исключение, если кто-то изменил запись пока мы думали.
         builder.Property(x => x.Version)
             .IsRowVersion();
+
+        builder.HasOne(b => b.User)
+        .WithMany(u => u.Bookings)
+        .HasForeignKey(b => b.UserId)
+        .OnDelete(DeleteBehavior.Cascade); // Если удалим юзера, удалятся и брони
     }
 }

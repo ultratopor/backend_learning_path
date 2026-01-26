@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Virtual Scroll (The Reuse Pattern)</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: #222; 
+            color: #eee; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            overflow: hidden;
+        }
+
+        /* Окно просмотра (Camera) */
+        #viewport {
+            width: 400px;
+            height: 500px;
+            background: #333;
+            border: 2px solid #555;
+            overflow-y: auto; /* Включает нативный скроллбар */
+            position: relative; /* Для абсолютного позиционирования детей */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Фантом (растягивает скроллбар) */
+        #phantom-content {
+            width: 100%;
+            /* Высота будет задана через JS */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Элемент списка (Cell) */
+        .list-item {
+            position: absolute; /* Важно! Мы сами управляем Y */
+            width: 100%;
+            height: 50px; /* Фиксированная высота = itemHeight */
+            box-sizing: border-box;
+            border-bottom: 1px solid #444;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 14px;
+            background: #333; /* Перекрывает фон */
+            /* GPU Acceleration hint */
+            will-change: transform; 
+        }
+
+        .list-item:hover {
+            background: #444;
+        }
+
+        .index-badge {
+            background: #3498db;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        #stats {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #f1c40f;
+            font-family: monospace;
+            background: rgba(0,0,0,0.8);
+            padding: 10px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="stats">
+    Total Items: 100,000<br>
+    Rendered DOM Nodes: <span id="node-count">0</span><br>
+    Scroll Top: <span id="scroll-val">0</span>
+</div>
+
+<div id="viewport">
+    <div id="phantom-content"></div>
+    <div id="render-container"></div>
+</div>
+
+<script>
+    // --- CONFIGURATION ---
+    const TOTAL_ITEMS = 100_000;
+    const ITEM_HEIGHT = 50; // px
+    const VIEWPORT_HEIGHT = 500; // px
+    const OVERSCAN = 5; // Buffer items (сверху и снизу)
+
+    // --- STATE ---
+    // Генерируем "Mock Data" (аналог List<Data> в C#)
+    const data = Array.from({ length: TOTAL_ITEMS }, (_, i) => ({
+        id: i,
+        text: `Item #${i} - System Log Entry ${Math.random().toString(16).slice(2)}`
+    }));
+
+    // --- DOM CACHE ---
+    const viewport = document.getElementById('viewport');
+    const phantom = document.getElementById('phantom-content');
+    const container = document.getElementById('render-container');
+    const statNodeCount = document.getElementById('node-count');
+    const statScroll = document.getElementById('scroll-val');
+
+    // --- INITIALIZATION ---
+    // 1. Задаем высоту фантома, чтобы браузер показал правильный скроллбар
+    const totalHeight = TOTAL_ITEMS * ITEM_HEIGHT;
+    phantom.style.height = `${totalHeight}px`;
+
+    // --- CORE LOGIC (The Virtualizer) ---
+    function render() {
+        const scrollTop = viewport.scrollTop;
+        
+        // 1. Math: Calculate Visible Range
+        // floor - округляем вниз, чтобы найти первый видимый индекс
+        let startIndex = Math.floor(scrollTop / ITEM_HEIGHT);
+        // ceil - округляем вверх, чтобы покрыть весь экран
+        let visibleCount = Math.ceil(VIEWPORT_HEIGHT / ITEM_HEIGHT);
+
+        // 2. Apply Overscan (Buffer)
+        // Расширяем окно вверх и вниз, чтобы не мелькало
+        startIndex = Math.max(0, startIndex - OVERSCAN);
+        const endIndex = Math.min(TOTAL_ITEMS, startIndex + visibleCount + (2 * OVERSCAN));
+
+        // 3. Render Loop
+        // Вместо создания/удаления нод (Full Recycling), для простоты примера 
+        // мы используем innerHTML для видимого куска. 
+        // V8 делает это очень быстро для < 50 элементов.
+        
+        const fragment = document.createDocumentFragment();
+        
+        for (let i = startIndex; i < endIndex; i++) {
+            const itemData = data[i];
+            
+            // Create DOM Element
+            const el = document.createElement('div');
+            el.className = 'list-item';
+            
+            // PHYSICS: Absolute Positioning
+            // Мы ставим элемент ровно туда, где он должен быть в "огромном" списке.
+            // Используем transform, так как это не триггерит Reflow (Layout), только Composite.
+            const topPos = i * ITEM_HEIGHT;
+            el.style.transform = `translateY(${topPos}px)`; 
+            
+            // Content
+            el.innerHTML = `
+                <span class="index-badge">${itemData.id}</span>
+                <span>${itemData.text}</span>
+            `;
+            
+            fragment.appendChild(el);
+        }
+
+        // 4. Commit to DOM
+        container.innerHTML = ''; // Очистка (неэффективно для GC, но просто для кода)
+        container.appendChild(fragment);
+
+        // Stats
+        statNodeCount.innerText = (endIndex - startIndex);
+        statScroll.innerText = Math.round(scrollTop);
+    }
+
+    // --- EVENT LOOP INTEGRATION ---
+    // Оптимизация: Используем passive listener для скролла (не блокирует поток)
+    viewport.addEventListener('scroll', () => {
+        // В реальном проекте тут нужен requestAnimationFrame (Throttle), 
+        // но для демо вызываем напрямую, чтобы видеть мгновенную реакцию.
+        render();
+    }, { passive: true });
+
+    // Initial Render
+    render();
+
+</script>
+</body>
+</html>

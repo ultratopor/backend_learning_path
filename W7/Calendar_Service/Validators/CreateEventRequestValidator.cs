@@ -21,5 +21,8 @@ public class CreateEventRequestValidator : AbstractValidator<CreateEventRequest>
         RuleFor(x => x.StartTime)
             .NotEmpty().WithMessage("Start time is required.")
             .GreaterThan(DateTimeOffset.UtcNow).WithMessage("Start time must be in the future.");
+
+        RuleFor(x => x.UserId)
+            .NotEmpty().WithMessage("UserId is required and cannot be empty.");
     }
 }

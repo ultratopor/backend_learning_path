@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5: Debounce & AbortController</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #222; color: #fff; padding: 40px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        
+        input { 
+            width: 100%; padding: 15px; font-size: 18px; 
+            background: #333; border: 1px solid #555; color: white; border-radius: 4px; 
+        }
+        input:focus { outline: none; border-color: #3498db; }
+        
+        .status { margin-top: 10px; font-size: 14px; color: #aaa; height: 20px; }
+        .active-req { color: #f1c40f; }
+        .results { margin-top: 20px; list-style: none; padding: 0; }
+        .result-item { background: #444; margin-bottom: 5px; padding: 10px; border-radius: 4px; animation: fadeIn 0.3s; }
+        .result-item small { display: block; color: #888; margin-top: 4px; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Smart Search (Race Condition Proof)</h2>
+    <input type="text" id="searchInput" placeholder="Type to search (e.g. 'Server')..." autocomplete="off">
+    <div class="status" id="status">Ready</div>
+    <ul class="results" id="resultsList"></ul>
+</div>
+
+<script>
+    // --- 1. MOCK API (Server Simulation) ---
+    // Эмулируем сервер, который отвечает со случайной задержкой (0.5 - 2.0 сек)
+    function mockApiCall(query, signal) {
+        return new Promise((resolve, reject) => {
+            const delay = 500 + Math.random() * 1500;
+            
+            // Если "сервер" думал, а клиент отменил запрос:
+            const timeoutId = setTimeout(() => {
+                resolve([
+                    `Server [${query}] - Alpha`,
+                    `Server [${query}] - Beta`,
+                    `Server [${query}] - Gamma`
+                ]);
+            }, delay);
+
+            // Обработка отмены (CancellationToken)
+            signal.addEventListener('abort', () => {
+                clearTimeout(timeoutId); // Останавливаем работу на "сервере"
+                reject(new DOMException('Aborted', 'AbortError'));
+            });
+        });
+    }
+
+    // --- 2. UTILS (Decorators) ---
+    
+    // Classic Debounce Implementation
+    // Возвращает новую функцию, которая "сглаживает" вызовы
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            const context = this;
+            clearTimeout(timeout); // Сброс таймера (Unity: timer = 0)
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    }
+
+    // --- 3. APPLICATION LOGIC ---
+    
+    const input = document.getElementById('searchInput');
+    const list = document.getElementById('resultsList');
+    const status = document.getElementById('status');
+    
+    // Храним текущий контроллер (аналог CancellationTokenSource)
+    let currentAbortController = null;
+
+    async function performSearch(query) {
+        if (!query) {
+            list.innerHTML = '';
+            status.innerText = 'Ready';
+            return;
+        }
+
+        // A. CANCELLATION LOGIC
+        // Если есть активный запрос — убиваем его.
+        if (currentAbortController) {
+            currentAbortController.abort();
+        }
+        // Создаем новый токен
+        currentAbortController = new AbortController();
+        const signal = currentAbortController.signal;
+
+        try {
+            status.innerHTML = `<span class="active-req">Searching for "${query}"...</span>`;
+            list.style.opacity = '0.5';
+
+            // B. NETWORK REQUEST
+            const data = await mockApiCall(query, signal);
+
+            // C. RENDER (Только если мы дошли сюда, значит не было отмены)
+            renderResults(data, query);
+            status.innerText = `Done (${data.length} results)`;
+            
+        } catch (err) {
+            if (err.name === 'AbortError') {
+                console.log(`Request for "${query}" cancelled (stale).`);
+                // Не обновляем UI, так как мы знаем, что уже запущен новый запрос
+            } else {
+                status.innerText = 'Error: ' + err.message;
+            }
+        } finally {
+            list.style.opacity = '1';
+        }
+    }
+
+    function renderResults(items, query) {
+        list.innerHTML = items.map(text => `
+            <li class="result-item">
+                <strong>${text}</strong>
+                <small>Query timestamp: ${new Date().toLocaleTimeString()}</small>
+            </li>
+        `).join('');
+    }
+
+    // --- 4. BINDING ---
+
+    // Оборачиваем нашу логику в Debounce (300ms)
+    const debouncedSearch = debounce((e) => {
+        performSearch(e.target.value);
+    }, 500);
+
+    input.addEventListener('input', debouncedSearch);
+
+</script>
+</body>
+</html>

@@ -6,4 +6,5 @@ public sealed record CreateEventRequest(
     DateTimeOffset StartTime,
     TimeSpan Duration,
     string Location,
-    string? RecurrentRule);
+    string? RecurrentRule,
+    Guid UserId);
